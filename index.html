@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meylia Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#profile">Profil Kami</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#message">Pesan Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="welcome">
+            <h1>Halo <span id="userName">Semua</span>, Selamat Datang di Website PT Doa Bersama</h1>
+            <p id="welcomeText">PT. DOA BERSAMA adalah perusahaan yang bergerak di bidang penyedia 
+                solusi jaringan komputer. Kami memiliki pengalaman luas dalam membangun 
+                dan memelihara jaringan di berbagai institusi pendidikan, termasuk sekolah, 
+                universitas, dan perpustakaan.</p>
+            <div id="userInput" class="user-input">
+                <label for="nameInput">Masukkan Nama Anda:</label>
+                <input type="text" id="nameInput">
+                <button onclick="saveUserName()">Submit</button>
+            </div>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="image/kota.jpg" alt="Welcome Image">
+                </div>
+                <div class="mySlides fade">
+                    <img src="image/jalan.jpg" alt="Slide 2">
+                </div>
+                <!-- Tambahkan slide tambahan di sini -->
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <!-- Tambahkan dot untuk setiap slide di sini -->
+            </div>
+            <br>
+        </section>
+        <section id="profile" class="headquarters">
+            <h2>Profil kami</h2>
+            <div class="cities">
+                <div class="city">Profil 1</div>
+                <div class="city">Profil 2</div>
+                <div class="city">Profil 3</div>
+            </div>
+        </section>
+        <section id="portfolio" class="message">
+            <h2>Portfolio</h2>
+            <div class="portfolio">
+                <div class="portfolio">Perancangan dan pembangunan jaringan</div>
+                <div class="portfolio">Instalasi dan konfigurasi perangkat keras dan perangkat lunak jaringan</div>
+                <div class="portfolio">Pemeliharaan dan support jaringan</div>
+                <div class="portfolio">Konsultasi dan pelatihan jaringan</div>
+            </div>
+        </section>
+        <section id="message" class="message">
+            <h2>Kirim Pesan Pada Kami</h2>
+            <form id="messageForm" onsubmit="updateMessageInfo(event)">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+                <label for="dob">Tanggal Lahir:</label>
+                <input type="date" id="dob" name="dob" required>
+                <label for="gender">Jenis Kelamin:</label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="Laki-Laki" required>
+                    <label for="male">Laki-Laki</label>
+                    <input type="radio" id="female" name="gender" value="Perempuan" required>
+                    <label for="female">Perempuan</label>
+                </div>
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div class="message-info">
+                <p id="current-time">Waktu Saat Ini: Kamis, 4 Juli 2024 11:27:28 GMT+0100</p>
+                <p id="message-name">Nama: Meylia Wijayanti</p>
+                <p id="message-dob">Tanggal Lahir: 06/05/2004</p>
+                <p id="message-gender">Jenis Kelamin: Perempuan</p>
+                <p id="message-content">Pesan: Pemula Membuat Website Portofolio</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Created by Meylia Wijayanti
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.getElementById('userName').textContent = userName;
+                document.getElementById('welcomeText').textContent = `Selamat datang kembali, ${userName}! PT. DOA BERSAMA adalah perusahaan yang bergerak di bidang penyedia solusi jaringan komputer.`;
+                document.getElementById('userInput').style.display = 'none';
+            }
+        });
+
+        function saveUserName() {
+            const nameInput = document.getElementById('nameInput').value;
+            if (nameInput) {
+                localStorage.setItem('userName', nameInput);
+                document.getElementById('userName').textContent = nameInput;
+                document.getElementById('welcomeText').textContent = `Selamat datang, ${nameInput}! PT. DOA BERSAMA adalah perusahaan yang bergerak di bidang penyedia solusi jaringan komputer.`;
+                document.getElementById('userInput').style.display = 'none';
+            }
+        }
+
+        function updateMessageInfo(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const dob = document.getElementById('dob').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const message = document.getElementById('message').value;
+
+            document.getElementById('message-name').textContent = `Nama: ${nama}`;
+            document.getElementById('message-dob').textContent = `Tanggal Lahir: ${dob}`;
+            document.getElementById('message-gender').textContent = `Jenis Kelamin: ${gender}`;
+            document.getElementById('message-content').textContent = `Pesan: ${message}`;
+
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            document.getElementById('current-time').textContent = `Waktu Saat Ini: ${now.toLocaleDateString('id-ID', options)}`;
+
+            // Optionally, clear the form after submission
+            document.getElementById('messageForm').reset();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+    "git.verboseCommit": true,
+    "git.terminalGitEditor": true,
+    "git.enableCommitSigning": true
+}

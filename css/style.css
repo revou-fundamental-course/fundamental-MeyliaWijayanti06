@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #dfdede;
+    border-bottom: 2px solid #ccc;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    background-image: url("../image/pt.jpg"); 
+    background-size: cover;
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px; /* Add padding for better click area */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+nav ul li a:hover {
+    background-color: #ccc; /* Change background color on hover */
+    color: #000; /* Change text color on hover for better contrast */
+}
+
+main {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.welcome {
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    max-width: 800px; /* Sesuaikan lebar maksimum sesuai kebutuhan */
+    margin: 0 auto; /* Memastikan konten berada di tengah halaman */
+}
+
+.user-input {
+    margin-top: 1rem;
+}
+
+.user-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.user-input input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-input button {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-input button:hover {
+    background-color: #45a049;
+}
+
+.headquarters {
+    text-align: center;
+    margin-top: 40px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.headquarters .cities {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.headquarters .city {
+    border: 1px solid #535050;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.message {
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input, form textarea, form button {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+form button {
+    margin-top: 20px;
+}
+
+.message-info {
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #747474;
+    margin-top: 40px;
+    border-top: 2px solid #ccc;
+}
+
+.portfolio {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#welcome img {
+    width: 100%; /* Gambar mengisi lebar elemen parent */
+    height: auto; /* Tinggi disesuaikan agar gambar tidak terdistorsi */
+}
+
+/* Style untuk slideshow */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+}
+
+/* Tambahkan container untuk tombol prev dan next */
+.controls {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px; /* Atur margin bawah */
+}
+
+.prev, .next {
+    cursor: pointer;
+    width: auto;
+    padding: 10px; /* Kurangi padding untuk mengecilkan tombol */
+    color: white;
+    font-weight: bold;
+    font-size: 14px; /* Kurangi ukuran font untuk mengecilkan tombol */
+    transition: 0.6s ease;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot-container {
+    text-align: center;
+    padding: 20px;
+    background: #ddd;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
